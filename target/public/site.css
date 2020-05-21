@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+body {
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    background-color: #fffff8;
+    color: #111;
+}
+
+article {
+    padding: 1rem 0rem;
+}
+
+code, pre > code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.0rem;
+    line-height: 1.42;
+}
+
+.mono {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+p,
+ol,
+ul {
+    font-size: 1.4rem;
+
+}
+
+p {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    line-height: 2rem;
+    padding-right: 0;
+    vertical-align: baseline;
+}
+
+a:link,
+a:visited {
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline #FF335F;
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+.posts h1 {
+    font-size: 2.3rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-style: italic;
+    font-size: 1.6rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.home {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+.nav-links .home a:hover {
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0.3rem;
+}
+
+.external-links {
+    list-style-type: none;
+}
+
+.external-links li {
+    display: inline-block;
+    padding: 0.3rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline #FF335F;
+}
+
+.nav-links li a.current-page {
+    text-decoration: underline #2cb67d;
+}
+
+.nav-links li a.current-page:hover {
+    text-decoration: underline #FF335F;
+}
+
+.external-links li a {
+    text-decoration: none;
+}
+
+.github:hover {
+    color: #666;
+}
+
+.rss:hover {
+    color: #f26522;
+}
+
+.twitter:hover {
+    color: #00AACE;
+}
+
+.centered {
+    text-align: center;
+}
+
+.posts ul {
+    list-style-type: none;
+    font-size: 1.6rem;
+}
+
+.post-title {
+}
+
+.tiny {
+    font-size: 0.8rem;
+}
+
+.ttr {
+    padding: 0.2rem;
+    color: #585858;
+}
+
+.date {
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    text-transform: uppercase;
+    color: #545454;
+}
+
+article {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.sans {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+.icon-link {
+    color: #111
+}
+
+.heart {
+    color: #f14668;
+}
+
+.coffee {
+    color: hsl(9, 35%, 50%);
+}
+
+footer {
+    color: #666;
+}
+
+.fleuron {
+    margin: 0;
+}
+
+.paren {
+    color: #2cb67d;
+}
+
+.tags {
+    font-size: 1.2rem;
+    color: #666;
+}
