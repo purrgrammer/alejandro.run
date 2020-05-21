@@ -9,6 +9,10 @@
          '[alejandro.run.web :as web]
          '[pandeiro.boot-http :refer [serve]])
 
+(defn post?
+  [{:keys [slug]}]
+  (not= "about" slug))
+
 (deftask build
   []
   (comp
@@ -17,9 +21,12 @@
         (perun/draft)
         (perun/ttr)
         (perun/render :renderer 'alejandro.run.web/post)
-        (perun/collection :renderer 'alejandro.run.web/index
+        (perun/static :renderer 'alejandro.run.web/about
+                      :page "about.html")
+        (perun/collection :renderer 'alejandro.run.web/blog
+                          :filterer post?
 			  :page "index.html")
-        (perun/rss)
+        #_(perun/rss)
         (target)
         (notify)))
 

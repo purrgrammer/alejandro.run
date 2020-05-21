@@ -1,3 +1,11 @@
 {:base-url "https://alejandro.run/"
- :site-title "(run alejandro)"
- :description "Blog about software development by Alejandro Gómez"}
+ :site-title "run alejandro"
+ :description
+ [:p
+  [:a.mono
+   {:href "https://alejandro.run"}
+   "(run alejandro)"]
+  " is a blog about software development by "
+  [:a {:href "https://github.com/purrgrammer"}
+   "Alejandro Gómez"]
+  ". The topics treated include functional programming, web development, Clojure(Script) and databases."]}
