@@ -78,7 +78,7 @@
      [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
      ;; CSS
      [:link {:rel "stylesheet" :href "highlight.css"}]
-     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans"}]
+     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans&display=swap"}]
      [:link {:rel "stylesheet" :href "site.css"}]
      ;; Scripts
      [:script {:src "https://kit.fontawesome.com/7fe02c1764.js"
