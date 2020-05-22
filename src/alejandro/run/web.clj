@@ -76,20 +76,16 @@
      ;; todo: meta description
      [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge,chrome=1"}]
      [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
-     ;; CSS
-     [:link {:rel "stylesheet" :href "highlight.css"}]
-     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans&display=swap"}]
-     [:link {:rel "stylesheet" :href "site.css"}]
-     ;; Scripts
-     [:script {:src "https://kit.fontawesome.com/7fe02c1764.js"
-               :crossorigin "anonymous"}]
-     [:script {:src "/highlight.pack.js"}]]
+     [:link {:rel "stylesheet" :href "site.css"}]]
     [:body
      (navbar page meta)
      body
      (footer)
-     [:script
-      {:src "/main.js"}]]))
+     [:link {:rel "stylesheet" :href "highlight.css"}]
+     [:script {:src "https://kit.fontawesome.com/7fe02c1764.js"
+               :crossorigin "anonymous"}]
+     [:script {:src "/highlight.pack.js"}]
+     [:script {:src "/main.js"}]]))
 
 (defn about-entry [{meta :meta
                     entry :entry}]
