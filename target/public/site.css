@@ -163,22 +163,6 @@ h3 {
     color: #666;
 }
 
-.github:hover {
-    text-decoration: underline #666;
-}
-
-.rss {
-    color: #f26522;
-}
-
-.twitter {
-    color: #00AACE;
-}
-
-.twitter:hover {
-    text-decoration: underline  #00AACE;
-}
-
 .centered {
     text-align: center;
 }
