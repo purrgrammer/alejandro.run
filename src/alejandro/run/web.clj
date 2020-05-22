@@ -78,6 +78,7 @@
      [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
      ;; CSS
      [:link {:rel "stylesheet" :href "highlight.css"}]
+     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css?family=Alegreya|Alegreya+Sans"}]
      [:link {:rel "stylesheet" :href "site.css"}]
      ;; Scripts
      [:script {:src "https://kit.fontawesome.com/7fe02c1764.js"
@@ -90,24 +91,29 @@
      [:script
       {:src "/main.js"}]]))
 
-(defn about [{meta :meta}]
+(defn about-entry [{meta :meta
+                    entry :entry}]
+  (html5
+   [:section.about
+    (:content entry)]) )
+
+(defn about [{meta :meta
+              entry :entries}]
   (html {:title (:site-title meta)
          :meta meta
          :page :about}
-        [:section.about.centered
-         (:description meta)]))
+        (:content (first entry))))
 
 (defn blog [{global-meta :meta posts :entries}]
   (html {:title (:site-title global-meta)
          :meta global-meta
          :page :blog}
         [:section.posts.centered
-         [:h1 "Latest articles"]
          [:ul
           (for [post posts
                 :let [date
                       (format-date (:date-published post))]]
-            [:li
+            [:li.post
              [:span.date.sans date]
              [:a.post-title
               {:href (:permalink post)}

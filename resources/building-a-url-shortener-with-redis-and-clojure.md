@@ -7,6 +7,7 @@ date-published: 2020-04-27
 tags:
  - clojure
  - redis
+type: post
 ---
 
 I have recently developed an anonymous <abbr title="Uniform Resource Locator">URL</abbr> shortener service which you can find at [encog.io](http://encog.io). It can store
