@@ -31,6 +31,8 @@
         (perun/collection :renderer 'alejandro.run.web/blog
                           :filterer post?
 			  :page "index.html")
+        (perun/tags :renderer 'alejandro.run.web/tag
+                    :filterer post?)
         (perun/collection :renderer 'alejandro.run.web/about
                           :filterer about?
 			  :page "about.html")
