@@ -121,6 +121,14 @@ h3 {
     text-decoration: none;
 }
 
+.tag-link {
+    text-decoration: none;
+}
+
+.tag-link:hover {
+    text-decoration: none;
+}
+
 .nav-links {
     list-style-type: none;
 }
