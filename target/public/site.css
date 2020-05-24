@@ -36,10 +36,6 @@ body {
     color: #111;
 }
 
-article {
-    padding: 1rem 0rem;
-}
-
 code, pre > code {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 1.0rem;
@@ -50,16 +46,10 @@ code, pre > code {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
-section {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
 p,
 ol,
 ul {
     font-size: 1.4rem;
-
 }
 
 p {
@@ -83,10 +73,6 @@ h1 {
     font-size: 3.2rem;
 }
 
-.posts h1 {
-    font-size: 2.3rem;
-}
-
 h2 {
     font-size: 2.2rem;
 }
@@ -101,16 +87,6 @@ h3 {
     justify-content: space-between;
 }
 
-.article-meta {
-    display: flex;
-    justify-content: space-between;
-}
-
-.about {
-    width: 70%;
-    margin: 0 auto;
-}
-
 .home {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     text-decoration: none;
@@ -118,14 +94,6 @@ h3 {
 }
 
 .nav-links .home a:hover {
-    text-decoration: none;
-}
-
-.tag-link {
-    text-decoration: none;
-}
-
-.tag-link:hover {
     text-decoration: none;
 }
 
@@ -175,15 +143,56 @@ h3 {
     text-align: center;
 }
 
+.sans {
+    font-family: 'Alegreya Sans', Calibri, sans-serif;
+}
+
+footer {
+    color: #666;
+}
+
+.fleuron {
+    margin: 0;
+}
+
+.paren {
+    color: #2cb67d;
+}
+
+/* article */
+
+article {
+    width: 85%;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+
+.article-meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.article-ttr {
+    font-size: 1.2rem;
+    color: #585858;
+}
+
+.tags {
+    font-size: 1.2rem;
+    color: #666;
+    margin-right: 1em;
+}
+
+/* posts list */
+
+.posts h1 {
+    font-size: 2.3rem;
+}
+
 .posts ul {
     list-style-type: none;
     font-size: 1.6rem;
-}
-
-.post {
-}
-
-.post-title {
 }
 
 .tiny {
@@ -201,40 +210,19 @@ h3 {
     color: #545454;
 }
 
-article {
-    width: 70%;
+/* about */
+
+.about {
+    width: 85%;
     margin: 0 auto;
 }
 
-.sans {
-    font-family: 'Alegreya Sans', Calibri, sans-serif;
+/* tags */
+
+.tag-link {
+    text-decoration: none;
 }
 
-.icon-link {
-    color: #111
-}
-
-.heart {
-    color: #f14668;
-}
-
-.coffee {
-    color: hsl(9, 35%, 50%);
-}
-
-footer {
-    color: #666;
-}
-
-.fleuron {
-    margin: 0;
-}
-
-.paren {
-    color: #2cb67d;
-}
-
-.tags {
-    font-size: 1.2rem;
-    color: #666;
+.tag-link:hover {
+    text-decoration: none;
 }
