@@ -77,12 +77,18 @@
 
 (defn html [{:keys [title
                     meta
-                    page]} body]
+                    page
+                    keywords
+                    description]} body]
   (html5 {:lang "en" :itemtype "http://schema.org/Blog"}
     [:head
      [:title title]
      [:meta {:charset "utf-8"}]
-     ;; todo: meta description
+     (when (seq? keywords)
+       [:meta {:name "keywords" :content (string/join ", " keywords)}])
+     (when description
+       [:meta {:name "description" :content description}])
+     [:meta {:name "author" :content "Alejandro Gómez"}]
      [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge,chrome=1"}]
      [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
      [:link {:rel "stylesheet" :href "site.css"}]]
@@ -104,7 +110,8 @@
               entry :entries}]
   (html {:title (:site-title meta)
          :meta meta
-         :page :about}
+         :page :about
+         :description "(run alejandro) is a blog about software development. The topics treated here include functional programming, web development, Clojure(Script) and databases."}
         (:content (first entry))))
 
 (defn post-list
@@ -125,7 +132,9 @@
 (defn blog [{global-meta :meta posts :entries}]
   (html {:title (:site-title global-meta)
          :meta global-meta
-         :page :blog}
+         :page :blog
+         :keywords ["software development", "clojure", "clojurescript", "web development", "functional programming", "databases"]
+         :description "(run alejandro) is a blog about software development. The topics treated here include functional programming, web development, Clojure(Script) and databases."}
         [:section.posts.centered
          (post-list posts)]))
 
@@ -148,7 +157,9 @@
 
 (defn post [{global-meta :meta posts :entries post :entry}]
   (html {:title (str (:site-title global-meta) " | " (:title post))
-         :meta global-meta}
+         :meta global-meta
+         :keywords (:tags post)
+         :description (:description post)}
         [:article
          [:h1.article-title
           (:title post)]
@@ -174,7 +185,9 @@
                           1
                           assoc :width 24 :height 24 :fill color)]
     (html {:title (str (:site-title global-meta) " | Posts tagged " tag)
-         :meta global-meta}
+           :keywords [tag]
+           :description (str "All entries tagged with " tag)
+           :meta global-meta}
           [:div.centered
            [:h1
             tiny-icon
