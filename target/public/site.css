@@ -1,35 +1,5 @@
 @charset "UTF-8";
 
-/* alegreya-sans-regular - latin */
-@font-face {
-    font-family: 'Alegreya Sans';
-    font-display: swap;
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/alegreya-sans-v10-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local('Alegreya Sans Regular'), local('AlegreyaSans-Regular'),
-         url('/fonts/alegreya-sans-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('/fonts/alegreya-sans-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('/fonts/alegreya-sans-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('/fonts/alegreya-sans-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('/fonts/alegreya-sans-v10-latin-regular.svg#AlegreyaSans') format('svg'); /* Legacy iOS */
-}
-
-/* alegreya-regular - latin */
-@font-face {
-    font-family: 'Alegreya';
-    font-display: swap;
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/alegreya-v13-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local('Alegreya Regular'), local('Alegreya-Regular'),
-         url('/fonts/alegreya-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('/fonts/alegreya-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('/fonts/alegreya-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('/fonts/alegreya-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('/fonts/alegreya-v13-latin-regular.svg#Alegreya') format('svg'); /* Legacy iOS */
-}
-
 body {
     font-family: 'Alegreya', Georgia, serif;
     background-color: #fffff8;
@@ -42,8 +12,9 @@ code, pre > code {
     line-height: 1.42;
 }
 
-.mono {
+p > code {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.2rem;
 }
 
 p,
@@ -155,8 +126,16 @@ footer {
     margin: 0;
 }
 
-.paren {
+.home {
     color: #2cb67d;
+}
+
+.home:hover {
+    color: #FF335F;
+}
+
+.site-title {
+    color: #111;
 }
 
 /* article */
@@ -165,6 +144,10 @@ article {
     width: 85%;
     margin: 0 auto;
     padding: 1em 0;
+}
+
+article p:first-of-type {
+    font-size: 1.6rem;
 }
 
 .article-meta {
