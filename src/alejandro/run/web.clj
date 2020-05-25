@@ -152,7 +152,7 @@
         icon (get-in global-meta [:tags tag :icon])
         tiny-icon (update icon
                           1
-                          assoc :width 14 :height 14 :fill color)]
+                          assoc :width "1rem" :height "1rem" :fill "var(--light)")]
     [:span.tag-link
      {:style (str "--tag-color: " color ";")}
      tiny-icon
