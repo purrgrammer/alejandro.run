@@ -91,6 +91,11 @@
      [:meta {:name "author" :content "Alejandro Gómez"}]
      [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge,chrome=1"}]
      [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
+     ;; Open Graph
+     [:meta {:property "og:title" :content title}]
+     (when description
+       [:meta {:property "og:description" :content description}])
+     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,700;1,400&family=Alegreya:ital,wght@0,400;0,700;1,400&display=swap"}]
      [:link {:rel "stylesheet" :href "site.css"}]]
     [:body
      (navbar page meta)
