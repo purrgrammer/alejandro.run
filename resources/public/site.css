@@ -209,3 +209,7 @@ article p:first-of-type {
 .tag-link:hover {
     text-decoration: none;
 }
+
+.tag-section h1 {
+    text-transform: capitalize;
+}

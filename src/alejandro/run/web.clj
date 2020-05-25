@@ -194,10 +194,10 @@
            :keywords [tag]
            :description (str "All entries tagged with " tag)
            :meta global-meta}
-          [:div.centered
+          [:section.tag-section.centered
            [:h1
             tiny-icon
             " "
-            (string/capitalize tag)]
+            tag]
            [:section.posts
             (post-list posts)]])))
