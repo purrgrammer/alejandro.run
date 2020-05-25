@@ -203,11 +203,16 @@ article p:first-of-type {
 /* tags */
 
 .tag-link {
+    padding: 0.1em;
+    margin: 0;
+}
+
+.tag-link a {
     text-decoration: none;
 }
 
-.tag-link:hover {
-    text-decoration: none;
+.tag-link a:hover {
+    text-decoration: underline #FF335F;
 }
 
 .tag-section h1 {

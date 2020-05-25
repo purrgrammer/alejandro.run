@@ -202,10 +202,6 @@ article p:first-of-type {
 
 /* tags */
 
-.tag-link {
-    text-decoration: none;
-}
-
-.tag-link:hover {
-    text-decoration: none;
+.tag-section h1 {
+    text-transform: capitalize;
 }

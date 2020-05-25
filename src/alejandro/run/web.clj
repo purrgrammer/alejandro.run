@@ -146,20 +146,16 @@
 
 (defn tag->link
   [global-meta tag]
-  (let [color (get-in global-meta
-                      [:tags tag :color])
-        icon (get-in global-meta
-                     [:tags tag :icon])
+  (let [color (get-in global-meta [:tags tag :color])
+        icon (get-in global-meta [:tags tag :icon])
         tiny-icon (update icon
                           1
                           assoc :width 14 :height 14 :fill color)]
-    [:a.tag-link
-     {:href (str "/" tag ".html")}
+    [:span.tag-link
+     {:style (str "border: 1px solid " color "; border-radius: 7%;")}
      tiny-icon
      " "
-     [:span
-      {:style (str "text-decoration: underline " color ";")}
-      tag]]))
+     [:a {:href (str "/" tag ".html")} tag]]))
 
 (defn post [{global-meta :meta posts :entries post :entry}]
   (html {:title (str (:site-title global-meta) " | " (:title post))
@@ -174,7 +170,7 @@
            "&#128337;"
            (time-to-read post)]
           [:div.tags
-           (interpose ", "
+           (interpose " "
                       (map #(tag->link global-meta %) (:tags post)))]]
          (:content post)]))
 
