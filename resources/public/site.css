@@ -12,8 +12,9 @@ code, pre > code {
     line-height: 1.42;
 }
 
-.mono {
+p > code {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.2rem;
 }
 
 p,
@@ -125,8 +126,16 @@ footer {
     margin: 0;
 }
 
-.paren {
+.home {
     color: #2cb67d;
+}
+
+.home:hover {
+    color: #FF335F;
+}
+
+.site-title {
+    color: #111;
 }
 
 /* article */
@@ -135,6 +144,10 @@ article {
     width: 85%;
     margin: 0 auto;
     padding: 1em 0;
+}
+
+article p:first-of-type {
+    font-size: 1.6rem;
 }
 
 .article-meta {

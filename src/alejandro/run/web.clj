@@ -25,7 +25,8 @@
      [:li.home
       [:a {:href "/"}
        [:span.paren "("]
-       (:site-title meta)
+       [:span.site-title
+        (:site-title meta)]
        [:span.paren ")"]]]
      [:li
       (case page
