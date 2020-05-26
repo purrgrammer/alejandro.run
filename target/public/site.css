@@ -100,9 +100,7 @@ h3 {
 /* header */
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
 }
 
 .home {
@@ -117,6 +115,13 @@ header {
 
 .nav-links {
     list-style-type: none;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+      text-align: left;
+  }
 }
 
 .nav-links li {
@@ -196,7 +201,7 @@ footer .by {
 }
 
 address {
-    margin: 0;
+    margin: 0 2rem;
     padding: 0.2rem;
 }
 
@@ -337,7 +342,9 @@ article p:first-of-type {
     display : none;
 }
 .theme-switch {
-    margin-right: 1rem;
+    position: absolute;
+    top: 1.6rem;
+    right: 1rem;
 }
 
 /* */
@@ -368,7 +375,6 @@ blockquote:after {
 blockquote p {
     display: inline;
 }
-
 
 /* Highlight.js styles */
 
