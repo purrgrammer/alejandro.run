@@ -104,7 +104,6 @@
      (header page meta)
      body
      (footer)
-     [:link {:rel "stylesheet" :href "highlight.css"}]
      [:script {:src "/highlight.pack.js"}]
      [:script {:src "/main.js"}]]))
 
