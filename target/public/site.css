@@ -230,6 +230,17 @@ article p:first-of-type {
     color: var(--gray);
 }
 
+@media (max-width: 600px) {
+  .article-meta {
+      flex-direction: column;
+  }
+
+  .article-meta .tags {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+  }
+}
+
 /* posts list */
 
 .posts {
