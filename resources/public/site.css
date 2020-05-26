@@ -164,6 +164,10 @@ footer {
     color: var(--gray);
 }
 
+footer .by {
+    font-size: 1.1rem;
+}
+
 .social {
     list-style-type: none;
     margin: 0;
