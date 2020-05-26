@@ -32,7 +32,6 @@
     --foreground: #fffff8;
     --gray: #EEE;
     --light: #EEE;
-
     --hl-background: #333;
     --hl-foreground: #F8F8F8;
     --hl-literal: #99cccc;
@@ -76,7 +75,6 @@ a:link,
 a:visited {
     color: inherit;
 }
-
 a:hover {
     text-decoration: underline var(--primary-color);
 }
@@ -93,6 +91,13 @@ h3 {
     font-style: italic;
     font-size: 1.6rem;
 }
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* header */
 
 header {
     display: flex;
@@ -116,15 +121,7 @@ header {
 
 .nav-links li {
     display: inline-block;
-    padding: 0.3rem;
-}
-
-.external-links {
-    list-style-type: none;
-}
-
-.external-links li {
-    display: inline-block;
+    margin: 0;
     padding: 0.3rem;
 }
 
@@ -136,24 +133,16 @@ header {
     text-decoration: underline var(--primary-color);
 }
 
-.nav-links li a.current-page {
+a.current-page {
     text-decoration: underline var(--secondary-color);
 }
 
-.nav-links li a.current-page:hover {
+a.current-page:hover {
     text-decoration: underline var(--primary-color);
-}
-
-.external-links li a {
-    text-decoration: none;
 }
 
 .github {
     color: var(--gray);
-}
-
-.centered {
-    text-align: center;
 }
 
 .sans {
@@ -162,25 +151,53 @@ header {
 
 footer {
     color: var(--gray);
+    text-align: center;
 }
 
 footer .by {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 0.2rem;
 }
 
-.social {
+.footer-links {
+    list-style-type: none;
+    display: inline;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0.2rem;
+}
+
+.footer-links li {
+    display: inline;
+}
+
+.footer-nav {
+    margin: 0;
+    padding: 0;
+}
+
+.social-links {
     list-style-type: none;
     margin: 0;
-    padding: 0.3rem;
+    padding: 0.2rem;
 }
 
-.social li {
+.social-links li {
     display: inline;
     padding: 0.2rem;
 }
 
+.social-links li a:hover {
+    text-decoration: underline var(--primary-color);
+}
+
 .heart {
     color: #C32148;
+}
+
+address {
+    margin: 0;
+    padding: 0.2rem;
 }
 
 .home {
@@ -198,8 +215,6 @@ footer .by {
 /* article */
 
 article {
-    width: 85%;
-    margin: 0 auto;
     padding: 1em 0;
 }
 
@@ -211,39 +226,45 @@ article p:first-of-type {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--gray);
 }
 
 /* posts list */
 
-.posts h1 {
-    font-size: 2.3rem;
-}
-
-.posts ul {
+.posts {
     list-style-type: none;
     font-size: 1.6rem;
+}
+
+.post {
+    padding: 1rem;
 }
 
 .tiny {
     font-size: 0.8rem;
 }
 
+.medium {
+    font-size: 1.2rem;
+}
+
+.large {
+    font-size: 1.6rem;
+}
+
 .ttr {
-    padding: 0.2rem;
     color: var(--gray);
 }
 
 .date {
-    font-size: 0.8em;
     text-transform: uppercase;
     color: var(--gray);
 }
 
 /* about */
 
-.about {
+.container {
     width: 85%;
     margin: 0 auto;
 }
@@ -258,6 +279,7 @@ article p:first-of-type {
     border-radius: .5rem;
 }
 
+
 .tag-link a {
     text-decoration: none;
     color: var(--light);
@@ -267,7 +289,7 @@ article p:first-of-type {
     text-decoration: underline var(--light);
 }
 
-.tag-section h1 {
+.tag-title {
     text-transform: capitalize;
 }
 
@@ -276,8 +298,8 @@ article p:first-of-type {
 .switch {
     position: relative;
     display: inline-block;
-    width: 2em;
-    height: 1em;
+    width: 2.8rem;
+    height: 1.6rem;
     background-color: var(--gray);
     border-radius: 20px;
     transition: all 0.3s;
@@ -285,17 +307,17 @@ article p:first-of-type {
 .switch::after {
     content: '';
     position: absolute;
-    width: .9em;
-    height: .9em;
+    width: 1.4rem;
+    height: 1.4rem;
     border-radius: 50%;
     background-color: var(--background);
-    top: 1px;
-    left: 1px;
+    top: 0.1rem;
+    left: 0.2rem;
     transition: all 0.3s;
 }
 
 .theme-toggle:checked + .switch::after {
-    left : 1em;
+    left : 1.2rem;
 }
 .theme-toggle:checked + .switch {
     background-color: var(--gray);
@@ -303,7 +325,6 @@ article p:first-of-type {
 .theme-toggle {
     display : none;
 }
-
 .theme-switch {
     margin-right: 1rem;
 }

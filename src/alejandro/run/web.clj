@@ -17,9 +17,23 @@
   [{:keys [ttr]}]
   (str ttr " min read"))
 
+(defn tag->link
+  [global-meta tag]
+  (let [color (get-in global-meta [:tags tag :color])
+        icon (get-in global-meta [:tags tag :icon])
+        tiny-icon (update icon
+                          1
+                          assoc :width "1rem" :height "1rem" :fill "var(--light)")]
+    [:span.tag-link
+     {:style (str "--tag-color: " color ";")}
+     tiny-icon
+     " "
+     [:a {:href (str "/" tag ".html")}
+      tag]]))
+
 (defn header
   [page meta]
-  [:header.sans.centered
+  [:header.sans
    [:nav
     [:ul.nav-links
      [:li.home
@@ -27,15 +41,7 @@
        [:span.paren "("]
        [:span.site-title
         (:site-title meta)]
-       [:span.paren ")"]]]
-     [:li
-      (case page
-        :blog [:a.current-page {:href "/index.html"} "blog"]
-        [:a {:href "/index.html"} "blog"])]
-     [:li
-      (case page
-        :about [:a.current-page {:href "/about.html"} "about"]
-        [:a {:href "/about.html"} "about"])]]]
+       [:span.paren ")"]]]]]
    [:div.theme-switch
     [:input {:type "checkbox"
              :class "theme-toggle"
@@ -44,7 +50,7 @@
              :class "switch"}]]])
 
 (def social
-  [:ul.social
+  [:ul.social-links
    [:li
     [:a {:href "http://twitter.com/pvrrgrammer"}
      [:svg
@@ -64,8 +70,18 @@
        :viewBox "0 0 24 24"}
       [:path {:d "M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"}]]]]])
 
+(defn footer-links
+  [page]
+  [:section.footer-nav
+   [:ul.footer-links
+    [:li
+     (case page
+       :about
+       [:a.current-page {:href "/about.html"} "about"]
+       [:a {:href "/about.html"} "about"])]]])
+
 (defn footer
-  []
+  [page]
   [:footer.centered.sans
    [:div.by
     "Made with"
@@ -73,6 +89,7 @@
     " by "
     [:a {:href "http://github.com/purrgrammer"} "Alejandro Gómez"]]
    social
+   (footer-links page)
    [:address.license
     "Content on this site is licensed under a "
     [:a {:href "https://creativecommons.org/licenses/by/4.0/"}
@@ -103,14 +120,14 @@
     [:body
      (header page meta)
      body
-     (footer)
+     (footer page)
      [:script {:src "/highlight.pack.js"}]
      [:script {:src "/main.js"}]]))
 
 (defn about-entry [{meta :meta
                     entry :entry}]
   (html5
-   [:section.about
+   [:section.container
     (:content entry)]) )
 
 (defn about [{meta :meta
@@ -122,18 +139,17 @@
         (:content (first entry))))
 
 (defn post-list
-  [posts]
-  [:ul
+  [global-meta posts]
+  [:ul.posts
    (for [post posts
          :let [date
                (format-date (:date-published post))]]
      [:li.post
-      [:span.date.sans date]
-      [:a.post-title
+      [:section.date.sans.medium date]
+      [:a.post-title.large
        {:href (:permalink post)}
        (:title post)]
-      [:span.ttr.sans.tiny
-       "&#128337;"
+      [:section.ttr.sans.tiny
        (time-to-read post)]])])
 
 (defn blog [{global-meta :meta posts :entries}]
@@ -142,39 +158,29 @@
          :page :blog
          :keywords ["software development", "clojure", "clojurescript", "web development", "functional programming", "databases"]
          :description "(run alejandro) is a blog about software development. The topics treated here include functional programming, web development, Clojure(Script) and databases."}
-        [:section.posts.centered
-         (post-list posts)]))
+        [:section.container
+         [:h1 "Writing"]
+         (post-list global-meta posts)]))
 
-(defn tag->link
-  [global-meta tag]
-  (let [color (get-in global-meta [:tags tag :color])
-        icon (get-in global-meta [:tags tag :icon])
-        tiny-icon (update icon
-                          1
-                          assoc :width "1rem" :height "1rem" :fill "var(--light)")]
-    [:span.tag-link
-     {:style (str "--tag-color: " color ";")}
-     tiny-icon
-     " "
-     [:a {:href (str "/" tag ".html")}
-      tag]]))
+
 
 (defn post [{global-meta :meta posts :entries post :entry}]
   (html {:title (str (:site-title global-meta) " | " (:title post))
          :meta global-meta
          :keywords (:tags post)
          :description (:description post)}
-        [:article
-         [:h1
-          (:title post)]
-         [:div.article-meta.sans
-          [:span.article-ttr
-           "&#128337;"
-           (time-to-read post)]
-          [:div.tags
-           (interpose " "
-                      (map #(tag->link global-meta %) (:tags post)))]]
-         (:content post)]))
+        [:section.container
+         [:article
+          [:h1 (:title post)]
+          [:section.article-meta.sans
+           [:span.date
+            (format-date (:date-published post))]
+           [:section.tags
+            (interpose " "
+                       (map #(tag->link global-meta %) (:tags post)))]
+           [:span.ttr
+            (time-to-read post)]]
+          (:content post)]]))
 
 (defn tag
   [{global-meta :meta
@@ -192,10 +198,10 @@
            :keywords [tag]
            :description (str "All entries tagged with " tag)
            :meta global-meta}
-          [:section.tag-section.centered
-           [:h1
+          [:section.container
+           [:h1.tag-title
             tiny-icon
             " "
             tag]
            [:section.posts
-            (post-list posts)]])))
+            (post-list global-meta posts)]])))
