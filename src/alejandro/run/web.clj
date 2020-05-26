@@ -162,8 +162,6 @@
          [:h1 "Writing"]
          (post-list global-meta posts)]))
 
-
-
 (defn post [{global-meta :meta posts :entries post :entry}]
   (html {:title (str (:site-title global-meta) " | " (:title post))
          :meta global-meta
