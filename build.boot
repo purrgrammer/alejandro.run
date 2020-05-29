@@ -1,4 +1,6 @@
 (set-env!
+  :project 'alejandro.run
+  :version "0.1.0"
   :source-paths #{"src"}
   :resource-paths #{"resources"}
   :dependencies '[[perun "0.4.3-SNAPSHOT" :scope "test"]
