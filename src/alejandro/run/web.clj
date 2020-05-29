@@ -31,26 +31,16 @@
      [:a {:href (str "/" tag ".html")}
       tag]]))
 
-(def theme-switcher
-  [:div.theme-switch
-   [:input {:type "checkbox"
-            :class "theme-toggle"
-            :id "toggle"}]
-   [:label {:for "toggle"
-            :class "switch"}]])
-
 (defn header
   [page meta]
   [:header.sans
    [:nav
-    [:ul.nav-links
-     [:li.home
-      [:a {:href "/"}
-       [:span.paren "("]
-       [:span.site-title
-        (:site-title meta)]
-       [:span.paren ")"]]]
-     theme-switcher]]])
+    [:span.home
+     [:a {:href "/"}
+      [:span.paren "("]
+      [:span.site-title
+       (:site-title meta)]
+      [:span.paren ")"]]]]])
 
 (def social
   [:ul.social-links

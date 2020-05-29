@@ -25,19 +25,21 @@
     /* --hl-addition: #dfd; */
 }
 
-[data-theme="dark"] {
-    --primary-color: #2cb67d;
-    --secondary-color: #FF335F;
-    --background: #222;
-    --foreground: #fffff8;
-    --gray: #EEE;
-    --light: #EEE;
-    --hl-background: #333;
-    --hl-foreground: #F8F8F8;
-    --hl-literal: #99cccc;
-    --hl-string: #34e49c;
-    --hl-title: #CCC;
-    --hl-tag: #AAA;
+@media(prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #2cb67d;
+        --secondary-color: #FF335F;
+        --background: #222;
+        --foreground: #fffff8;
+        --gray: #EEE;
+        --light: #EEE;
+        --hl-background: #333;
+        --hl-foreground: #F8F8F8;
+        --hl-literal: #99cccc;
+        --hl-string: #34e49c;
+        --hl-title: #CCC;
+        --hl-tag: #AAA;
+    }
 }
 
 body {
@@ -100,43 +102,21 @@ h3 {
 /* header */
 
 header {
-
+    text-align: center;
+    padding: 1rem;
+    margin: 0;
 }
 
-.home {
+.home a {
     font-family: 'Fira Code', Consolas, "Liberation Mono", Menlo, Courier, monospace;
     text-decoration: none;
     font-size: 1.4rem;
 }
 
-.nav-links .home a:hover {
+.home a:hover {
     text-decoration: none;
 }
 
-.nav-links {
-    list-style-type: none;
-    text-align: center;
-}
-
-@media (max-width: 600px) {
-  .nav-links {
-      text-align: left;
-  }
-}
-
-.nav-links li {
-    display: inline-block;
-    margin: 0;
-    padding: 0.3rem;
-}
-
-.nav-links li a {
-    text-decoration: none;
-}
-
-.nav-links li a:hover {
-    text-decoration: underline var(--primary-color);
-}
 
 a.current-page {
     text-decoration: underline var(--secondary-color);
@@ -309,45 +289,7 @@ article p:first-of-type {
     text-transform: capitalize;
 }
 
-/* theme switch */
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 2.8rem;
-    height: 1.6rem;
-    background-color: var(--gray);
-    border-radius: 20px;
-    transition: all 0.3s;
-}
-.switch::after {
-    content: '';
-    position: absolute;
-    width: 1.4rem;
-    height: 1.4rem;
-    border-radius: 50%;
-    background-color: var(--background);
-    top: 0.1rem;
-    left: 0.2rem;
-    transition: all 0.3s;
-}
-
-.theme-toggle:checked + .switch::after {
-    left : 1.2rem;
-}
-.theme-toggle:checked + .switch {
-    background-color: var(--gray);
-}
-.theme-toggle {
-    display : none;
-}
-.theme-switch {
-    position: absolute;
-    top: 1.6rem;
-    right: 1rem;
-}
-
-/* */
+/* Quotes */
 
 blockquote {
     font-size: 1rem;
