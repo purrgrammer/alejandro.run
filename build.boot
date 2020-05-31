@@ -15,10 +15,6 @@
   [{:keys [type]}]
   (= "post" type))
 
-(defn about?
-  [{:keys [type]}]
-  (= "about" type))
-
 (deftask build
   []
   (comp
@@ -28,17 +24,11 @@
         (perun/ttr)
         (perun/render :renderer 'alejandro.run.web/post
                       :filterer post?)
-        (perun/render :renderer 'alejandro.run.web/about-entry
-                      :filterer about?)
         (perun/collection :renderer 'alejandro.run.web/blog
                           :filterer post?
 			  :page "index.html")
         (perun/tags :renderer 'alejandro.run.web/tag
                     :filterer post?)
-        (perun/collection :renderer 'alejandro.run.web/about
-                          :filterer about?
-			  :page "about.html")
-        #_(perun/rss)
         (target)
         (notify)))
 

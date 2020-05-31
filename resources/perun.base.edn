@@ -1,5 +1,13 @@
 {:base-url "https://alejandro.run/"
  :site-title "run alejandro"
+ :projects [{:name "ClojureScript Unraveled"
+             :description "An open source book about ClojureScript."
+             :github "https://github.com/funcool/clojurescript-unraveled"
+             :website "https://funcool.github.io/clojurescript-unraveled/"}
+            {:name "encog.io"
+             :description "Anonymous URL shortener built with Redis & Clojure(Script)."
+             :github "https://github.com/encogio/encogio"
+             :website "http://encog.io"}]
  :tags {"redis" {:color "#DC382D"
                  :icon [:svg
                         {:title "Redis"

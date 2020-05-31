@@ -2,13 +2,28 @@
 
 @import "normalize.css";
 
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
 :root {
     --primary-color: #FF335F;
     --secondary-color: #2cb67d;
+
     --background: #fffff8;
     --foreground: #111;
+
+    --footer-bg: #fffff8;
+    --footer-fg: #666;
+
     --gray: #666;
     --light: #EEE;
+
     --hl-foreground: #333;
     --hl-background: #F8F8F8;
     --hl-comment: #998;
@@ -16,6 +31,10 @@
     --hl-string: #e2355a;
     --hl-title: #666;
     --hl-tag: #666;
+
+    --twitter: #00AACE;
+    --github: #181717;
+    --mail: #8B89CC;
     /* --hl-type: #458; */
     /* --hl-regexp: #009926; */
     /* --hl-symbol: #990073; */
@@ -23,23 +42,6 @@
     /* --hl-meta: #999; */
     /* --hl-deletion: #fdd; */
     /* --hl-addition: #dfd; */
-}
-
-@media(prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #2cb67d;
-        --secondary-color: #FF335F;
-        --background: #222;
-        --foreground: #fffff8;
-        --gray: #EEE;
-        --light: #EEE;
-        --hl-background: #333;
-        --hl-foreground: #F8F8F8;
-        --hl-literal: #99cccc;
-        --hl-string: #34e49c;
-        --hl-title: #CCC;
-        --hl-tag: #AAA;
-    }
 }
 
 body {
@@ -99,6 +101,25 @@ h3 {
     margin: 0 auto;
 }
 
+.main {
+    padding: 1rem;
+}
+
+/* text */
+
+.tiny {
+    font-size: 0.8rem;
+}
+
+.medium {
+    font-size: 1.2rem;
+}
+
+
+.sans {
+    font-family: 'Alegreya Sans', Calibri, sans-serif;
+}
+
 /* header */
 
 header {
@@ -110,7 +131,7 @@ header {
 .home a {
     font-family: 'Fira Code', Consolas, "Liberation Mono", Menlo, Courier, monospace;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 
 .home a:hover {
@@ -127,62 +148,92 @@ a.current-page:hover {
 }
 
 .github {
-    color: var(--gray);
-}
-
-.sans {
-    font-family: 'Alegreya Sans', Calibri, sans-serif;
+    color: var(--github);
 }
 
 footer {
-    color: var(--gray);
-    text-align: center;
+    color: var(--footer-fg);
+    padding: 1.5rem 20% 1.5rem 20%;
+    font-size: 1.4rem;
+    background-color: var(--footer-bg);
+    background:
+        linear-gradient(
+            var(--light),
+            var(--footer-bg) 6rem,
+            var(--footer-bg)
+        );
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
 }
 
-footer .by {
-    font-size: 1rem;
-    padding: 0.2rem;
+footer p {
+    margin: 0;
+    padding: .2em 0;
+}
+
+footer h4 {
+    font-size: 1.4rem;
+    padding: 0;
+    margin: 0;
+}
+
+footer p, footer ol, footer ul {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+}
+
+footer a:hover {
+    text-decoration: underline var(--secondary-color);
+}
+
+.about {
+    width: 70%;
+    text-align: justify;
 }
 
 .footer-links {
-    list-style-type: none;
-    display: inline;
-    font-size: 1.2rem;
-    margin: 0;
-    padding: 0.2rem;
-}
-
-.footer-links li {
-    display: inline;
-}
-
-.footer-nav {
-    margin: 0;
-    padding: 0;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-links {
     list-style-type: none;
+    padding: 0;
     margin: 0;
-    padding: 0.2rem;
+    line-height: 1rem;
 }
 
 .social-links li {
-    display: inline;
-    padding: 0.2rem;
+    padding: .2rem;
 }
 
-.social-links li a:hover {
-    text-decoration: underline var(--primary-color);
+.social-links li a {
+    text-decoration: none;
 }
 
-.heart {
-    color: #C32148;
+.social-links .mail-link a:hover {
+    color: var(--mail);
 }
 
-address {
-    margin: 0 2rem;
-    padding: 0.2rem;
+.social-links .twitter-link a:hover {
+    color: var(--twitter);
+}
+
+.social-links .github-link a:hover {
+    color: var(--github);
+}
+
+.icon {
+    padding: .2rem;
+}
+
+.clear:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .home {
@@ -216,37 +267,87 @@ article p:first-of-type {
 }
 
 @media (max-width: 600px) {
-  .article-meta {
-      flex-direction: column;
-  }
+    h1 {
+        font-size: 2.4rem;
+    }
 
-  .article-meta .tags {
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-  }
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-style: italic;
+        font-size: 1.6rem;
+    }
+
+    p > code {
+        font-size: 1rem;
+    }
+
+    p,
+    ol,
+    ul {
+        font-size: 1.2rem;
+    }
+
+    article {
+        padding: 0;
+    }
+
+    article p:first-of-type {
+        font-size: 1.6rem;
+    }
+
+    .article-meta {
+        flex-direction: column;
+    }
+
+    .article-meta .tags {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+    .projects {
+        flex-direction: column;
+    }
+
+    .about {
+        width: 100%;
+    }
+
+    .footer-links {
+        width: 100%;
+        padding-top: 1rem;
+    }
+
 }
 
 /* posts list */
 
 .posts {
     list-style-type: none;
-    font-size: 1.6rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .post {
-    padding: 1rem;
+    padding: 0;
 }
 
-.tiny {
-    font-size: 0.8rem;
-}
-
-.medium {
+.post .post-meta {
     font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
 }
 
-.large {
-    font-size: 1.6rem;
+.post h2 {
+    margin: 0;
+    padding: 0;
 }
 
 .ttr {
@@ -256,13 +357,6 @@ article p:first-of-type {
 .date {
     text-transform: uppercase;
     color: var(--gray);
-}
-
-/* about */
-
-.container {
-    width: 85%;
-    margin: 0 auto;
 }
 
 /* tags */
@@ -412,4 +506,60 @@ blockquote p {
 
 .hljs-strong {
     font-weight: bold;
+}
+
+/* projects */
+
+.projects {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project {
+    padding: 1rem;
+}
+
+.project h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.project p {
+    margin: 0;
+    padding: 0;
+}
+
+/* dark mode */
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #2cb67d;
+        --secondary-color: #FF335F;
+        --background: #222;
+        --foreground: #fffff8;
+
+        --footer-bg: #222;
+        --footer-fg: #EEE;
+
+        --github: #CCC;
+        --gray: #EEE;
+        --light: #EEE;
+
+        --hl-background: #333;
+        --hl-foreground: #F8F8F8;
+        --hl-literal: #99cccc;
+        --hl-string: #34e49c;
+        --hl-title: #CCC;
+        --hl-tag: #AAA;
+    }
+
+    footer {
+        background:
+            linear-gradient(
+                #181818,
+                var(--footer-bg) 6rem,
+                var(--footer-bg)
+            );
+    }
 }
