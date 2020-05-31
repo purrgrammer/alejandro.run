@@ -1,0 +1,3 @@
+#!/bin/sh
+
+netlify deploy --dir=target/public --prod
