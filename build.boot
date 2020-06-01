@@ -5,9 +5,11 @@
   :resource-paths #{"resources"}
   :dependencies '[[perun "0.4.3-SNAPSHOT" :scope "test"]
                   [hiccup "1.0.5" :exclusions [org.clojure/clojure]]
-                  [pandeiro/boot-http "0.8.3" :exclusions [org.clojure/clojure]]])
+                  [pandeiro/boot-http "0.8.3" :exclusions [org.clojure/clojure]]
+                  [deraen/boot-sass "0.5.1"]])
 
 (require '[io.perun :as perun]
+         '[deraen.boot-sass :refer [sass]]
          '[alejandro.run.web :as web]
          '[pandeiro.boot-http :refer [serve]])
 
@@ -18,19 +20,20 @@
 (deftask build
   []
   (comp
-        (perun/global-metadata)
-        (perun/markdown)
-        (perun/draft)
-        (perun/ttr)
-        (perun/render :renderer 'alejandro.run.web/post
-                      :filterer post?)
-        (perun/collection :renderer 'alejandro.run.web/blog
-                          :filterer post?
-			  :page "index.html")
-        (perun/tags :renderer 'alejandro.run.web/tag
-                    :filterer post?)
-        (target)
-        (notify)))
+   (perun/global-metadata)
+   (sass :output-style :compressed)
+   (perun/markdown)
+   (perun/draft)
+   (perun/ttr)
+   (perun/render :renderer 'alejandro.run.web/post
+                 :filterer post?)
+   (perun/collection :renderer 'alejandro.run.web/blog
+                     :filterer post?
+                     :page "index.html")
+   (perun/tags :renderer 'alejandro.run.web/tag
+               :filterer post?)
+   (target)
+   (notify)))
 
 (deftask dev
   []

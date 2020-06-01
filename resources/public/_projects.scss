@@ -1,0 +1,33 @@
+.projects {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project {
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h2 {
+        margin: 0 auto;
+        padding: .2rem;
+    }
+
+    p {
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .source {
+        margin: 0 auto;
+    }
+}
+
+@media(max-width: 600px) {
+    .projects {
+        flex-direction: column;
+    }
+}

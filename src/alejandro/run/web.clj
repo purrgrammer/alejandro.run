@@ -38,8 +38,7 @@
     [:span.home
      [:a {:href "/"}
       [:span.paren "("]
-      [:span.site-title
-       title]
+      [:span.site-title title]
       [:span.paren ")"]]]]])
 
 (def github-icon
@@ -125,8 +124,10 @@
      (when description
        [:meta {:property "og:description" :content description}])
      [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,700;1,400&family=Alegreya:ital,wght@0,400;0,700;1,400&family=Fira+Code&display=swap"}]
-     [:link {:rel "stylesheet" :href "site.css"}]]
+     [:link {:rel "stylesheet" :href "main.css"}]]
     [:body
+     (when page
+       {:class (name page)})
      (header (:site-title meta))
      body
      footer
@@ -165,13 +166,15 @@
              [:li.project
               [:h2 [:a {:href website} name] ]
               [:p description]
-              [:a {:href github}
+              [:a.source
+               {:href github}
                [:span.icon github-icon]
                "Source on GitHub"]])]]]))
 
 (defn post [{global-meta :meta posts :entries post :entry}]
   (html {:title (str (:site-title global-meta) " | " (:title post))
          :meta global-meta
+         :page :post
          :keywords (:tags post)
          :description (:description post)}
         [:section.container
@@ -201,6 +204,7 @@
                           assoc :width 24 :height 24 :fill color)]
     (html {:title (str (:site-title global-meta) " | Posts tagged " tag)
            :keywords [tag]
+           :page :tag
            :description (str "All entries tagged with " tag)
            :meta global-meta}
           [:section.container

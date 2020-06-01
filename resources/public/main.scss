@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+@import "normalize.css";
+@import "theme";
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Alegreya', Georgia, serif;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+code, pre > code {
+    font-family: 'Fira Code', Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.0rem;
+    line-height: 1.42;
+}
+
+p > code {
+    font-family: 'Fira Code', Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.2rem;
+}
+
+p,
+ol,
+ul {
+    font-size: 1.4rem;
+}
+
+p {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    line-height: 2rem;
+    padding-right: 0;
+    vertical-align: baseline;
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-style: italic;
+    font-size: 1.6rem;
+}
+
+
+@import "header";
+@import "layout";
+@import "text";
+@import "icons";
+@import "links";
+@import "footer";
+@import "post";
+@import "highlight";
+@import "projects";
+
+/* TODO:
+  - queries with min-width instead of max-width
+*/
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-style: italic;
+        font-size: 1.6rem;
+    }
+
+    p > code {
+        font-size: 1rem;
+    }
+
+    p,
+    ol,
+    ul {
+        font-size: 1.2rem;
+    }
+}

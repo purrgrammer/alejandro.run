@@ -1,0 +1,28 @@
+header {
+    text-align: center;
+    padding: 1rem;
+    margin: 0;
+}
+
+.home {
+    color: var(--secondary-color);
+
+    &:hover {
+        color: var(--primary-color);
+    }
+
+    a {
+        font-family: 'Fira Code', Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        text-decoration: none;
+        font-size: 1.8rem;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+/* overrides color from `home` so the effect is applied only to parens. */
+.site-title {
+    color: var(--foreground);
+}

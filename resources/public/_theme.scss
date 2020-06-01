@@ -1,0 +1,50 @@
+:root {
+    --primary-color: #FF335F;
+    --secondary-color: #2cb67d;
+
+    --background: #fffff8;
+    --foreground: #111;
+
+    --footer-bg: #fffff8;
+    --footer-fg: #666;
+
+    --gray: #666;
+    --light: #EEE;
+    --dark: #181818;
+
+    --hl-foreground: #333;
+    --hl-background: #F8F8F8;
+    --hl-comment: #998;
+    --hl-literal: #008080;
+    --hl-string: #e2355a;
+    --hl-title: #666;
+    --hl-tag: #666;
+
+    --twitter: #00AACE;
+    --github: #181717;
+    --mail: #8B89CC;
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #2cb67d;
+        --secondary-color: #FF335F;
+        --background: #222;
+        --foreground: #fffff8;
+
+        --footer-bg: #222;
+        --footer-fg: #EEE;
+
+        --github: #CCC;
+        --gray: #EEE;
+        --light: #EEE;
+        --dark: #181818;
+
+        --hl-background: #333;
+        --hl-foreground: #F8F8F8;
+        --hl-literal: #99cccc;
+        --hl-string: #34e49c;
+        --hl-title: #CCC;
+        --hl-tag: #AAA;
+    }
+}
